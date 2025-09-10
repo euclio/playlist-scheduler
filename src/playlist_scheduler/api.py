@@ -87,7 +87,10 @@ def create_events(calendar, calendar_id: str, events: list[Event]) -> None:
             "end": {
                 "date": event.date.strftime("%Y-%m-%d"),
             },
-            "source.url": event.source,
+            "source": {
+                "title": "YouTube",
+                "url": event.source,
+            },
         }
 
         calendar.events().insert(
